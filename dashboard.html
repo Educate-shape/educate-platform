@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Educate</title>
+</head>
+<body>
+    <h2>Welcome to Educate!</h2>
+    <p>This is your dashboard where you can access learning materials and games.</p>
+    <button id="logout-btn">Logout</button>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script>
+        // Firebase Configuration (reuse from index.html)
+       var firebaseConfig = {
+            apiKey: "AIzaSyAAKWZ-hIqmqKodZG__MynZSyadPMdaFr8",
+            authDomain: "educate-7298a.firebaseapp.com",
+            projectId: "educate-7298a",
+            storageBucket: "educate-7298a.appspot.com",
+            messagingSenderId: "7536618034",
+            appId: "1:7536618034:web:3f9d050f42c0e23e80ea2b"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // Logout function
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            auth.signOut().then(() => {
+                window.location.href = 'index.html';
+            }).catch((error) => {
+                alert('Error: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
